@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p>My product <a href="/my-product">here</a></p>
+<p th:text="'Shopbee Products'" />
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product : ${allProduct}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.productName}"></td>
+        <td><a th:href="@{/edit/{id}(id=${product.id})}">Edit</a></td>
+        <td><a th:href="@{/delete/{id}(id=${product.id})}">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
